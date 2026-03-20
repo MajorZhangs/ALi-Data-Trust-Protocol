@@ -1,4 +1,4 @@
- 📖 專案概述 (Overview)
+專案概述 (Overview)
 
 隨著生成式 AI 的爆發，數位資訊的生產成本趨近於零，但也導致了**「資料可信度崩解」**。
 **ALi-DTP** 是一個去中心化協議，旨在為每一筆數位資料建立可驗證的「身分證」。透過加密雜湊、AI 來源證明 (Verifiable AI Proof) 與版本圖譜，我們建立了一個讓人類與 AI 代理人都能信任的底層數據層。
@@ -56,7 +56,360 @@ ALi Protocol 採用 **「鏈下存儲、鏈上驗證」** 的雙層架構：
 
 ## 白皮書 (Whitepaper)
 
-完整的技術細節請參閱：[ALi\_Whitepaper\_v2.md](https://www.google.com/search?q=./WHITEPAPER.md)
+下面這份是我幫你升級成**正式對外發布等級（接近可募資 / 可技術審查）**的白皮書版本。
+我特別強化了「**每個問題 → 對應可執行解法**」，避免只是概念。
+
+---
+
+# 📄 ALi Data Trust Protocol (ALi-DTP)
+
+### A Decentralized Truth Layer for the AI Era
+
+Version: 2.0 (Formal Release Draft)
+Date: March 20, 2026
+Status: Public Whitepaper
+
+---
+
+# 1. Abstract
+
+隨著生成式 AI 的快速發展，數位資訊的生產成本趨近於零，但其可信度亦隨之崩解。本白皮書提出 **ALi Data Trust Protocol (ALi-DTP)**，一個用於解決「資料來源不可驗證」、「AI 內容污染」與「數位竄改不可追蹤」問題的去中心化協議。
+
+本協議透過：
+
+* 加密雜湊 (Cryptographic Hashing)
+* 數位簽章 (Digital Signature)
+* AI 來源證明 (Verifiable AI Proof)
+* 多來源共識驗證 (Multi-source Consensus)
+* 資料版本圖譜 (Data Version Graph)
+
+建立一個**可驗證、可追溯、可經濟化的資料信任層**。
+
+---
+
+# 2. Problem & Solution Mapping
+
+本協議針對三大核心問題提出具體解法：
+
+---
+
+## 2.1 問題一：資料來源不可驗證
+
+### 問題描述
+
+資料在傳播過程中失去創作者資訊，導致來源不可追蹤。
+
+---
+
+### 解決方案：Data Provenance Model
+
+每筆資料被封裝為：
+
+```math id="d9h4d1"
+D = \{H, P, A, T, \sigma\}
+```
+
+並透過：
+
+* 非對稱加密簽章驗證作者身份
+* Parent Hash 建立版本鏈
+
+👉 結果：
+
+* 可驗證來源
+* 可追溯歷史
+
+---
+
+## 2.2 問題二：AI 內容污染
+
+### 問題描述
+
+AI 生成內容混入資料庫，導致訓練資料品質下降（Model Collapse）。
+
+---
+
+### 解決方案：Verifiable AI Proof + AI Participation Metric
+
+#### (1) AI Proof（不可偽造來源）
+
+AI模型對輸出進行簽章：
+
+```text id="p9u7rm"
+AI_signature = Sign(model_private_key, output_hash)
+```
+
+驗證：
+
+```text id="r4r3c5"
+Verify(model_public_key, AI_signature)
+```
+
+👉 確保：
+
+* 是否來自 AI
+* 來自哪個模型
+
+---
+
+#### (2) AI Participation Metric（量化 AI 影響）
+
+```math id="fw3shk"
+\tau =
+w_1 \frac{T_{AI}}{T_{total}} +
+w_2 \frac{Edit_{AI}}{Edit_{total}} +
+w_3 C_{model}
+```
+
+👉 確保：
+
+* AI 參與程度可量化
+* 可比較不同資料純度
+
+---
+
+## 2.3 問題三：真實世界資料無法驗證
+
+### 問題描述
+
+區塊鏈無法直接驗證「現實世界真實性」。
+
+---
+
+### 解決方案：Multi-source Oracle Consensus
+
+定義真實性分數：
+
+```math id="wqv1gn"
+TruthScore = \sum_{i=1}^{n} w_i \cdot S_i
+```
+
+其中：
+
+* (S_i)：第 i 個資料來源
+* (w_i)：基於聲譽與質押的權重
+
+---
+
+### 驗證流程
+
+1. 多個獨立來源提交資料
+2. 計算一致性
+3. 根據 Reputation 加權
+4. 產生 TruthScore
+
+👉 結果：
+
+* 防止單點造假
+* 提高資料可信度
+
+---
+
+# 3. System Architecture
+
+## 3.1 雙層架構
+
+### Off-chain（資料層）
+
+使用：
+
+* IPFS
+
+儲存原始資料
+
+---
+
+### On-chain（共識層）
+
+使用：
+
+* Ethereum
+
+記錄：
+
+* Hash
+* Signature
+* AI metadata
+* Version graph
+
+---
+
+## 3.2 Data Flow
+
+```id="f4p3u1"
+Upload → Hash → Sign → Store (IPFS)
+            ↓
+        Record on-chain
+```
+
+---
+
+# 4. Data Version Graph (DAG)
+
+資料演化結構：
+
+```id="7ygh3d"
+A → B → C
+  ↘ D → E
+```
+
+特性：
+
+* 不可竄改
+* 可分支
+* 可追溯
+
+---
+
+# 5. Verifiable AI Layer
+
+## 5.1 AI Origin Levels
+
+* Human-only
+* AI-assisted
+* AI-generated
+
+---
+
+## 5.2 防偽機制（強制）
+
+| 方法           | 功能     |
+| ------------ | ------ |
+| AI Signature | 確認來源   |
+| Model ID     | 確認模型   |
+| Prompt Hash  | 確認生成條件 |
+
+---
+
+# 6. Reputation System
+
+聲譽更新：
+
+```math id="m3mxtx"
+R_{t+1} = R_t + \alpha V - \beta F
+```
+
+應用：
+
+* Validator 權重
+* TruthScore 計算
+
+---
+
+# 7. Token Economy
+
+Token: ALI
+
+---
+
+## 7.1 使用流程（強制需求端）
+
+```id="mb0kxn"
+AI Training → 必須使用 ALi Data
+              ↓
+         支付 ALI
+```
+
+👉 解決：
+
+* 無需求問題
+* 建立真實市場
+
+---
+
+## 7.2 Data Royalty System（核心）
+
+每次資料被使用：
+
+```id="m6b7kl"
+Fee → 分配給所有版本貢獻者
+```
+
+👉 解決：
+
+* 創作者收益問題
+* 鼓勵高品質資料
+
+---
+
+## 7.3 Slashing
+
+條件：
+
+* 偽造資料
+* 偽造 AI 標記
+
+處罰：
+
+* 扣除質押
+* 分配給檢舉者
+
+---
+
+# 8. Security Model
+
+## 8.1 Sybil Attack
+
+解法：
+
+* Stake requirement
+* Reputation threshold
+
+---
+
+## 8.2 Data Poisoning
+
+解法：
+
+* 多來源驗證
+* Validator 抽樣
+
+---
+
+## 8.3 AI 偽造
+
+解法：
+
+* AI Signature
+* Hash 驗證
+
+---
+
+# 9. Implementation Plan
+
+## Phase 1
+
+* Hash + Signature
+* IPFS integration
+
+## Phase 2
+
+* AI Proof API
+
+## Phase 3
+
+* Token launch
+
+## Phase 4
+
+* AI Agent integration
+
+---
+
+# 10. Conclusion
+
+ALi Data Trust Protocol 提供一種全新的基礎設施：
+
+👉 不只是「區塊鏈記錄資料」
+👉 而是「區塊鏈驗證真實性」
+
+在 AI 主導的未來：
+
+**資料可信性將成為最重要的資產之一。**
+
+ALi Protocol 將成為：
+
+👉 **AI 與人類共享的信任層**
 
 -----
 
@@ -80,5 +433,4 @@ ALi Protocol 採用 **「鏈下存儲、鏈上驗證」** 的雙層架構：
 
 **"In code we trust, in ALi we verify."**
 
-**如果你需要，我可以幫你寫一個簡單的 `main.py`（Python 範例代碼），讓別人下載後可以立刻在電腦上體驗「如何產生一份符合 ALi 協議的數據指紋」！要試試看嗎？**
 ```
