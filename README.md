@@ -10,7 +10,7 @@
 
 ---
 
-## 🛠️ 技術架構 (Architecture)
+##  技術架構 (Architecture)
 
 ALi Protocol 採用 **「鏈下存儲、鏈上驗證」** 的雙層架構：
 
@@ -35,7 +35,7 @@ ALi Protocol 採用 **「鏈下存儲、鏈上驗證」** 的雙層架構：
 
 -----
 
-## 💎 代幣經濟 (Tokenomics - $ALI)
+##  代幣經濟 (Tokenomics - $ALI)
 
 `$ALI` 是協議的原生實用代幣，驅動整個數據信任生態：
 
@@ -45,7 +45,7 @@ ALi Protocol 採用 **「鏈下存儲、鏈上驗證」** 的雙層架構：
 
 -----
 
-## 🗺️ 發展路線 (Roadmap)
+##  發展路線 (Roadmap)
 
   - [x] **Phase 1: Concept & Whitepaper** - 發布 2.0 完整白皮書。
   - [ ] **Phase 2: Alpha Testnet** - 建立基於 IPFS 的 Hash 記錄合約。
@@ -74,7 +74,7 @@ ALi Protocol 採用 **「鏈下存儲、鏈上驗證」** 的雙層架構：
 
 ## 許可證 (License)
 
-本專案採用 **MIT License** - 詳見 [LICENSE](https://www.google.com/search?q=LICENSE) 檔案。
+本專案採用 **MIT License**
 
 -----
 
