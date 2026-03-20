@@ -1,25 +1,4 @@
-沒問題！要將這份 **ALi Data Trust Protocol** 放到 GitHub 上，你需要一份專業的 `README.md`，它就像是專案的門面。我為你準備了一份符合國際開源標準的內容，包含專案願景、技術架構、以及開發路徑。
-
-你可以直接將以下內容複製到你的 GitHub 儲存庫（Repository）中。
-
------
-
-### 📂 GitHub 儲存庫建議命名：`ali-data-trust-protocol`
-
-### 📄 檔案：`README.md`
-
-````markdown
-# ALi Data Trust Protocol (ALi-DTP) 🛡️🤖
-
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Version](https://img.shields.io/badge/Version-2.0--Draft-blue)]()
-[![Status](https://img.shields.io/badge/Status-Whitepaper--Released-green)]()
-
-> **A Decentralized Truth Layer for the AI Era.** > 解決 AI 時代的資料偽造、來源不明與內容污染問題。
-
----
-
-## 📖 專案概述 (Overview)
+ 📖 專案概述 (Overview)
 
 隨著生成式 AI 的爆發，數位資訊的生產成本趨近於零，但也導致了**「資料可信度崩解」**。
 **ALi-DTP** 是一個去中心化協議，旨在為每一筆數位資料建立可驗證的「身分證」。透過加密雜湊、AI 來源證明 (Verifiable AI Proof) 與版本圖譜，我們建立了一個讓人類與 AI 代理人都能信任的底層數據層。
