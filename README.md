@@ -413,6 +413,393 @@ ALi Protocol 將成為：
 
 -----
 
+# 📄 ALi Data Trust Protocol (ALi-DTP)
+
+### A Decentralized Truth Layer for the AI Era
+
+Version: 2.0 (Formal Release Draft)
+Date: March 20, 2026
+Status: Public Whitepaper
+
+---
+
+# 1. Abstract
+
+The rapid advancement of generative AI has shifted the digital world from **information scarcity** to a **crisis of data authenticity**. While content generation costs approach zero, the reliability and provenance of data continue to deteriorate.
+
+This paper introduces the **ALi Data Trust Protocol (ALi-DTP)**, a decentralized framework designed to address:
+
+* Lack of data provenance
+* AI-generated content contamination
+* Invisible and unverifiable data modification
+
+The protocol integrates:
+
+* Cryptographic hashing
+* Digital signatures
+* Verifiable AI proofs
+* Multi-source consensus validation
+* Data version graphs
+
+to establish a **verifiable, traceable, and economically sustainable trust layer for data**.
+
+---
+
+# 2. Problem & Solution Mapping
+
+---
+
+## 2.1 Problem 1: Unverifiable Data Provenance
+
+### Description
+
+Data loses its origin as it propagates, making attribution and authenticity verification impossible.
+
+---
+
+### Solution: Data Provenance Model
+
+Each data object is defined as:
+
+```math
+D = \{H, P, A, T, \sigma\}
+```
+
+Where:
+
+* (H): Content hash
+* (P): Parent hash (previous version)
+* (A): Author address
+* (T): Timestamp
+* (\sigma): Digital signature
+
+Mechanisms:
+
+* Cryptographic signatures for identity verification
+* Hash-linked versioning for traceability
+
+👉 Result:
+
+* Verifiable authorship
+* Immutable history tracking
+
+---
+
+## 2.2 Problem 2: AI Data Contamination
+
+### Description
+
+AI-generated data is recursively fed back into training datasets, degrading model quality (Model Collapse).
+
+---
+
+### Solution: Verifiable AI Proof + AI Participation Metric
+
+---
+
+### (1) Verifiable AI Proof
+
+AI providers sign generated outputs:
+
+```
+AI_signature = Sign(model_private_key, output_hash)
+```
+
+Verification:
+
+```
+Verify(model_public_key, AI_signature)
+```
+
+👉 Guarantees:
+
+* Whether data is AI-generated
+* Which model produced it
+
+---
+
+### (2) AI Participation Metric
+
+AI contribution is quantified as:
+
+```math
+\tau =
+w_1 \frac{T_{AI}}{T_{total}} +
+w_2 \frac{Edit_{AI}}{Edit_{total}} +
+w_3 C_{model}
+```
+
+Where:
+
+* (T_{AI}): AI-generated tokens
+* (Edit_{AI}): AI modification ratio
+* (C_{model}): model confidence
+* (w_i): weighting coefficients
+
+👉 Result:
+
+* Quantifiable AI involvement
+* Comparable data purity levels
+
+---
+
+## 2.3 Problem 3: Real-World Data Verification
+
+### Description
+
+Blockchains cannot directly verify real-world truth.
+
+---
+
+### Solution: Multi-source Oracle Consensus
+
+Truth score is defined as:
+
+```math
+TruthScore = \sum_{i=1}^{n} w_i \cdot S_i
+```
+
+Where:
+
+* (S_i): independent data sources
+* (w_i): weights based on reputation and stake
+
+---
+
+### Validation Process
+
+1. Multiple independent submissions
+2. Consistency analysis
+3. Reputation-weighted aggregation
+4. TruthScore generation
+
+👉 Result:
+
+* Resistance to single-point manipulation
+* Increased data reliability
+
+---
+
+# 3. System Architecture
+
+---
+
+## 3.1 Dual-Layer Design
+
+### Off-chain Data Layer
+
+Data is stored in decentralized storage systems such as:
+
+* IPFS
+
+Only Content Identifiers (CID) are generated.
+
+---
+
+### On-chain Consensus Layer
+
+Built on platforms such as:
+
+* Ethereum
+
+Stores:
+
+* Hashes
+* Signatures
+* AI metadata
+* Version relationships
+
+---
+
+## 3.2 Data Flow
+
+```
+Upload → Hash → Sign → Store (IPFS)
+            ↓
+        Record on-chain
+```
+
+---
+
+# 4. Data Version Graph
+
+Data evolves as a Directed Acyclic Graph (DAG):
+
+```
+A → B → C
+  ↘ D → E
+```
+
+Properties:
+
+* Immutable
+* Branchable
+* Fully traceable
+
+---
+
+# 5. Verifiable AI Layer
+
+---
+
+## 5.1 AI Origin Classification
+
+* Human-only
+* AI-assisted
+* AI-generated
+
+---
+
+## 5.2 Anti-Forgery Mechanisms
+
+| Mechanism    | Function                    |
+| ------------ | --------------------------- |
+| AI Signature | Verify origin               |
+| Model ID     | Identify model              |
+| Prompt Hash  | Validate generation context |
+
+---
+
+# 6. Reputation System
+
+Reputation evolves as:
+
+```math
+R_{t+1} = R_t + \alpha V - \beta F
+```
+
+Where:
+
+* (V): validated contributions
+* (F): faulty or malicious data
+
+Applications:
+
+* Validator weighting
+* TruthScore calculation
+
+---
+
+# 7. Token Economy
+
+Token: **ALI (Data Trust Token)**
+
+---
+
+## 7.1 Demand Enforcement (Critical)
+
+```
+AI Training → Must use ALi Data Layer
+              ↓
+         Pay in ALI
+```
+
+👉 Ensures real demand and prevents speculative collapse
+
+---
+
+## 7.2 Data Royalty System
+
+Every data usage triggers revenue distribution:
+
+```
+Fee → Smart Contract
+       ├ Creator
+       ├ Editors
+       └ Validators
+```
+
+👉 Enables:
+
+* Continuous creator income
+* Incentivized high-quality contributions
+
+---
+
+## 7.3 Slashing Mechanism
+
+Triggered by:
+
+* False data submission
+* Incorrect AI labeling
+
+Penalties:
+
+* Stake confiscation
+* Rewards to challengers
+
+---
+
+# 8. Security Model
+
+---
+
+## 8.1 Sybil Attack Mitigation
+
+* Stake requirements
+* Reputation thresholds
+
+---
+
+## 8.2 Data Poisoning Defense
+
+* Multi-source validation
+* Random validator audits
+
+---
+
+## 8.3 AI Forgery Prevention
+
+* AI signature verification
+* Hash integrity checks
+
+---
+
+# 9. Implementation Roadmap
+
+---
+
+### Phase 1
+
+* Hashing & signature system
+* IPFS integration
+
+---
+
+### Phase 2
+
+* AI Proof API integration
+
+---
+
+### Phase 3
+
+* Token launch
+
+---
+
+### Phase 4
+
+* AI Agent integration
+
+---
+
+# 10. Conclusion
+
+ALi Data Trust Protocol introduces a new digital primitive:
+
+👉 Not just **data storage on blockchain**
+👉 But **verifiable truth on-chain**
+
+In an AI-driven future:
+
+**Data authenticity will become the most critical asset.**
+
+ALi Protocol serves as:
+
+👉 **A shared trust layer for humans and AI systems**
+-----
+
 ## 貢獻 (Contributing)
 
 我們歡迎所有開發者、AI 研究員與數據科學家加入！
